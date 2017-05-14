@@ -15,8 +15,6 @@ public class CoachDriver {
 
 		// read methods
 		System.out.println(coach.getDailyFortune());
-		
-		
 
 		// get Bean from container
 		Coach coach1 = context.getBean("myTennisCoach", Coach.class);
@@ -24,21 +22,30 @@ public class CoachDriver {
 		// read methods
 		System.out.println(coach1.getDailyFortune());
 		// close context
-		//context.close();
-		
-		//COnstructor Injection
-		
-		Coach coach2 = context.getBean("ConInjection",Coach.class);
+		// context.close();
+
+		// COnstructor Injection
+
+		Coach coach2 = context.getBean("ConInjection", Coach.class);
 		System.out.println(coach2.getDailyFortune());
 		System.out.println(coach2.getFortuneService());
-		
-		//Setter Injection
-		
-		Coach coach3 = context.getBean("BeanInjection",Coach.class);
+
+		// Setter Injection
+
+		Coach coach3 = context.getBean("BeanInjection", Coach.class);
 		System.out.println(coach2.getDailyFortune());
 		System.out.println(coach3.getFortuneService());
-		context.close();
+
+		// Literal Injection
+		BaseballCoach baseBallCoach = context.getBean("literalInjection", BaseballCoach.class);
+		System.out.println(baseBallCoach.getEmail());
+		System.out.println(baseBallCoach.getTeam());
 		
+		//PropertiesfileLiterals
+		BaseballCoach baseBallCoach1 = context.getBean("propertiesFileInjection", BaseballCoach.class);
+		System.out.println(baseBallCoach1.getEmail());
+		System.out.println(baseBallCoach1.getTeam());
+		context.close();
 
 	}
 

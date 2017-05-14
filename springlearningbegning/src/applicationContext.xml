@@ -6,6 +6,7 @@
     http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
+    <context:property-placeholder location="classpath:propertiesfile"/>
 
     <!-- Define your beans here -->
    <!--Configuration Bean for BaseBall Coach  -->
@@ -22,6 +23,19 @@
    <!-- Setter Injection -->
    <bean id="BeanInjection" class="com.learning.springbegning.TennisCoach">
    <property name="fortuneService" ref="myFortuneService"></property>
+   </bean>
+   
+   <!-- Literal Injections -->
+   <bean id="literalInjection" class="com.learning.springbegning.BaseballCoach">
+   <property name="email" value="sureshreddy@gmail.com"></property>
+   <property name="team" value="MumBai Indians"></property>
+   </bean>
+   
+   <!-- PropertiesFIle Injection -->
+   <bean id="propertiesFileInjection" class="com.learning.springbegning.BaseballCoach">
+   <property name="email" value="${f.email}"></property>
+   <property name="team" value="${f.team}"></property>
+   
    </bean>
     
 </beans>
