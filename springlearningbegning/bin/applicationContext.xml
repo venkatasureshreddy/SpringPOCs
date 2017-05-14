@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- Define your beans here -->
+   <!--Configuration Bean for BaseBall Coach  -->
+   <bean id="myBaseBallCoach" class="com.learning.springbegning.BaseballCoach"></bean>
+   
+   <!--COnfig Bean for tennis Coach  -->
+   <bean id="myTennisCoach" class="com.learning.springbegning.TennisCoach"></bean>
+   
+   <!--Bean Set Up for COnstructor Injection  -->
+   <bean id="myFortuneService" class="com.learning.springbegning.HappyFortuneService"></bean>
+   <bean id="ConInjection" class="com.learning.springbegning.BaseballCoach">
+   <constructor-arg ref="myFortuneService"></constructor-arg>
+   </bean>
+   <!-- Setter Injection -->
+   <bean id="BeanInjection" class="com.learning.springbegning.TennisCoach">
+   <property name="fortuneService" ref="myFortuneService"></property>
+   </bean>
+    
+</beans>
+
+
+
+
+
