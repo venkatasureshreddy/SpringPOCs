@@ -46,6 +46,16 @@ public class CoachDriver {
 		System.out.println(baseBallCoach1.getEmail());
 		System.out.println(baseBallCoach1.getTeam());
 		context.close();
+		
+		//Scope-Singleton,prototype
+		
+		ClassPathXmlApplicationContext context1 = new ClassPathXmlApplicationContext("applicationcontext-scope.xml");
+		FortuneService service = context1.getBean("scoperef",FortuneService.class);
+		FortuneService service1 = context1.getBean("scoperef",FortuneService.class);
+		System.out.println(service);
+		System.out.println(service1);
+		
+		context1.close();
 
 	}
 
